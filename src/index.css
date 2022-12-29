@@ -30,6 +30,8 @@ body {
 
   margin: 0;
   padding: 0;
+
+  /* background-size: none; */
 }
 
 .app.warm {
@@ -130,4 +132,46 @@ main {
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 
   margin-bottom: 0;
+}
+
+.footer {
+  margin-top: -100px;
+
+  color: #FFF;
+
+  /* display: flex;
+  justify-content: center; */
+
+  text-align: center;
+}
+
+.fa .fa-github {
+  width: 40px;
+  height: inherit;
+}
+
+#icon {
+  width: 40px;
+  height: 40px;
+
+  cursor: pointer;
+
+  background-color: rgba(50, 50, 70, 0.5);
+  color: #FFF;
+
+  border-radius: 10px;
+
+  padding-top: 5px;
+  margin-top: -10px;
+  text-align: center;
+
+  transition: 0.5s;
+}
+
+#icon:hover {
+  transform: translateY(-5px);
+}
+
+#icon:active {
+  transform: translateY(5px);
 }
