@@ -6,7 +6,20 @@
 }
 
 body {
-  font-family: 'montserrat', sans-serif;
+  font-family: 'Merienda';
+
+  margin: 0;
+  padding: 0;
+}
+
+.h2 {
+  color: #FFF;
+  text-align: center;
+  /* font-family: 'montserrat', sans-serif; */
+  font-size: 32px;
+  font-weight: 600;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.9);
+
 }
 
 .app {
@@ -14,6 +27,9 @@ body {
   background-size: cover;
   background-position: bottom;
   transition: 0.4 ease-out;
+
+  margin: 0;
+  padding: 0;
 }
 
 .app.warm {
@@ -33,9 +49,11 @@ main {
 }
 
 .search-box {
+  /* min-width: 70%; */
+  /* width: 1430px; */
   width: 100%;
-  margin: 0 0 75px;
-
+  margin-bottom: 45px;
+  /* margin-left: 25px; */
 }
 
 .search-box .search-bar {
@@ -70,11 +88,13 @@ main {
   font-weight: 500;
   text-align: center;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+
+  margin-bottom: 10px;
 }
 
 .location-box .date {
   color: #FFF;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 300;
   font-style: italic;
   text-align: center;
@@ -108,4 +128,6 @@ main {
   font-size: 48px;
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+
+  margin-bottom: 0;
 }

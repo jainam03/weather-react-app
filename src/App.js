@@ -32,13 +32,14 @@ function App() {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day} ${date} ${month} ${year}`
+    return `${day}, ${date} ${month} ${year}`
   }
 
   return (
     <div className={
       (typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : (weather.main.temp < 0) ? 'app snow' : 'app') : 'app'}>
       <main>
+        <h2 className="h2" >Search for your city, state or country! 👇</h2>
         <div className="search-box" >
           <input
             type="text"
@@ -52,12 +53,12 @@ function App() {
         {(typeof weather.main != "undefined") ? (
           <div>
             <div className="location-box" >
-              <div className="location">{weather.name},{weather.sys.country}</div>
+              <div className="location">{weather.name}, {weather.sys.country}</div>
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box" >
               <div className="temp" >
-                {Math.round(weather.main.temp)}°C
+                {Math.round(weather.main.temp)}°c
               </div>
               <div className="weather" >{weather.weather[0].main}</div>
             </div>
