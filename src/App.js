@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import { useState } from 'react';
 const api = {
   key: "3e64bb558c78b52d3cfbdcb7306f2e73",
   base: "https://api.openweathermap.org/data/2.5/"
@@ -9,22 +9,51 @@ function App() {
 
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
+  const [notFoundError, setNotFoundError] = useState(false)
+
+  // const search = evt => {
+  //   if (evt.key === "Enter") {
+  //     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+  //       .then(res => res.json())
+  //       .then(result => {
+  //         if (result.code === 404) {
+  //           setNotFoundError(true)
+  //         } else {
+  //           setWeather(result)
+  //           setQuery('')
+  //         }
+  //       })
+  //   }
+  // }
+
+  // const search = evt => {
+  //   if (evt.key === "Enter") {
+  //     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+  //       .then(res => {
+  //         if (res.status === 404) {
+  //           const error = new Error();
+  //           alert("No matching location found. Please try searching for a different place.")
+  //           throw error;
+  //         }
+  //       })
+  //       .then(res => res.JSON())
+  //       .then(result => {
+  //         setWeather(result)
+  //         setQuery('')
+  //         console.log(result)
+  //       })
+  //   }
+  // }
 
   const search = evt => {
     if (evt.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then(res => {
-          if (res.status === 404) {
-            const error = new Error();
-            alert("No matching location found. Please try searching for a different place.")
-            throw error;
-          }
-        })
         .then(res => res.json())
         .then(result => {
-          setWeather(result)
-          setQuery('')
-        })
+          setWeather(result);
+          setQuery('');
+          console.log(result);
+        });
     }
   }
 
