@@ -13,16 +13,17 @@ function App() {
 
   const search = evt => {
     if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then(res => res.json())
-        .then(result => {
-          if (result.code === 404) {
-            setNotFoundError(true)
-          } else {
-            setWeather(result)
-            setQuery('')
-          }
-        })
+      try {
+        fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+            .then(res => res.json())
+            .then(result => {
+              setWeather(result);
+              setQuery(""); 
+            })
+      } catch (err) {
+          console.log(err);
+          setNotFoundError(true);
+      }
     }
   }
 
