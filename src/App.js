@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 const api = {
-  key: "3e64bb558c78b52d3cfbdcb7306f2e73",
+  key: process.env.REACT_APP_API_KEY,
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
@@ -15,14 +15,18 @@ function App() {
     if (evt.key === "Enter") {
       try {
         fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-            .then(res => res.json())
-            .then(result => {
-              setWeather(result);
-              setQuery(""); 
-            })
+          .then(res => res.json())
+          .then(result => {
+            setWeather(result);
+            setQuery("");
+            notFoundError(true)
+          })
       } catch (err) {
-          console.log(err);
-          setNotFoundError(true);
+        // console.log(err);
+        alert("error occured")
+        setNotFoundError(true);
+        notFoundError(false);
+        throw err;
       }
     }
   }
@@ -36,6 +40,8 @@ function App() {
   //           alert("No matching location found. Please try searching for a different place.")
   //           throw error;
   //         }
+  //       }).catch(e => {
+  //         console.log(e);
   //       })
   //       .then(res => res.JSON())
   //       .then(result => {
