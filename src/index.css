@@ -75,7 +75,8 @@ main {
 
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 0;
 
   box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
 
@@ -179,6 +180,17 @@ main {
 
 #icon:active {
   transform: translateY(5px);
+}
+
+.error-box {
+  display: flex;
+  justify-content: center;
+
+  color: #FFF;
+
+  font-size: 1.3rem;
+
+  margin-bottom: 10px;
 }
 
 @media (max-width:760px) {
