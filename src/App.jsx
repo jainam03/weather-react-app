@@ -10,26 +10,29 @@ function App() {
   const [weather, setWeather] = useState({});
   const [notFoundError, setNotFoundError] = useState(false);
 
-  const search = (evt) => {
-    if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then(res => {
-          if (!res.ok) {
-            throw new Error("No matching location found. Please try searching for a different place.");
-          }
-          return res.json();
-        })
-        .then(result => {
-          setWeather(result);
-          setQuery("");
-          setNotFoundError(false);
-        })
-        .catch(err => {
-          console.error(err);
-          setNotFoundError(true);
-        });
-    }
+  const handleSearch = () => {
+    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("No matching location found. Please try searching for a different place.");
+        }
+        return res.json();
+      })
+      .then(result => {
+        setWeather(result);
+        setQuery("");
+        setNotFoundError(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setNotFoundError(true);
+      });
   };
+
+  const clearAll = () => {
+    window.location.reload()
+
+  }
 
   const dateBuilder = (d) => {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -38,7 +41,7 @@ function App() {
     const date = d.getDate();
     const month = months[d.getMonth()];
     const year = d.getFullYear();
-
+    
     return `${day}, ${date} ${month} ${year}`;
   };
 
@@ -51,16 +54,21 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Search..."
-            onChange={e => setQuery(e.target.value)}
             value={query}
-            onKeyPress={search}
+            onChange={e => setQuery(e.target.value)}
           />
-        </div>
-        {notFoundError && (
-          <div className="error-box">
-            An error occurred. Please try again later.
+          <div className='button-container'>
+          <button className="search-button" onClick={handleSearch}>
+            Search
+          </button>
+          <button className='clear-button' onClick={clearAll}>Clear all</button>
           </div>
-        )}
+        </div>
+            {notFoundError && (
+              <div className="error-box">
+                An error occurred. Please try again later.
+              </div>
+            )}
         {typeof weather.main !== "undefined" && (
           <div>
             <div className="location-box">
@@ -81,6 +89,7 @@ function App() {
 }
 
 export default App;
+
 
 
 //previous functions

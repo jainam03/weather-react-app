@@ -5,13 +5,14 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: 'Merienda';
+  font-family: 'Merienda',sans-serif;
 
   margin: 0;
   padding: 0;
 
-  transition: 0.4s;
+  transition: 0.4s ease-out;
 }
 
 .h2 {
@@ -49,24 +50,29 @@ body {
 main {
   min-height: 100vh;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
-  padding: 25px;
+  padding: 10px 25px;
 }
 
 .search-box {
-  /* min-width: 70%; */
-  /* width: 1430px; */
-  width: 100%;
+  /* width: 100%;
   margin-bottom: 45px;
-  /* margin-left: 25px; */
-
   display: flex;
   justify-content: center;
+  gap: 2rem; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-basis: 0 0 10%;
+
 }
 
 .search-box .search-bar {
-  display: block;
+  /* display: block; */
   width: 80%;
-  padding: 15px;
+  padding: 10px 15px;
 
   appearance: none;
   background: none;
@@ -76,7 +82,7 @@ main {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   margin-top: 20px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 
   box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
 
@@ -88,6 +94,80 @@ main {
 
 .search-box .search-bar:focus {
   background-color: rgba(255, 255, 255, 0.75);
+}
+
+.search-box .button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 10px 5px 20px 5px;
+
+  font-family: 'Merianda';
+}
+
+.search-box .button-container .search-button {
+  appearance: none;
+  border: none;
+  /* outline: none; */
+
+  margin-top: 12px;
+
+  background-color: #3e64bb;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 15px 28px;
+  transition: background-color 0.3s ease;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-box .button-container .search-button:hover {
+  background-color: #345298;
+}
+
+.search-box .button-container .search-button:active {
+  background-color: #3e64bb;
+}
+
+.search-box .button-container .search-button:focus {
+  outline: none;
+}
+
+.search-box .button-container .clear-button {
+  appearance: none;
+  border: none;
+  /* outline: none; */
+
+  margin-top: 12px;
+
+  background-color: #3e64bb;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 15px 28px;
+  transition: background-color 0.3s ease;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-box .button-container .clear-button:hover {
+  background-color: #345298;
+}
+
+.search-box .button-container .clear-button:active {
+  background-color: #3e64bb;
+}
+
+.search-box .button-container .clear-button:focus {
+  outline: none;
 }
 
 .location-box .location {
@@ -116,14 +196,14 @@ main {
 .weather-box .temp {
   display: inline-block;
   position: relative;
-  margin: 30px auto;
+  margin: 18px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
 
-  padding: 15px 25px;
+  padding: 13px 22px;
 
   color: #FFF;
-  font-size: 102px;
+  font-size: 80px;
   font-weight: 900;
 
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
@@ -133,7 +213,7 @@ main {
 
 .weather-box .weather {
   color: #FFF;
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 
@@ -141,7 +221,7 @@ main {
 }
 
 .footer {
-  margin-top: -100px;
+  margin-top: -105px;
 
   color: #FFF;
 
@@ -151,27 +231,15 @@ main {
   text-align: center;
 }
 
-.fa .fa-github {
-  width: 40px;
-  height: inherit;
-}
-
 #icon {
-  width: 40px;
-  height: 40px;
-
   cursor: pointer;
 
-  background-color: rgba(50, 50, 70, 0.5);
   color: #FFF;
 
-  border-radius: 10px;
-
-  padding-top: 5px;
-  margin-top: -10px;
+  margin-top: 20px;
   text-align: center;
 
-  transition: 0.5s;
+  transition: 0.2s ease-in-out;
 }
 
 #icon:hover {
@@ -202,6 +270,7 @@ main {
     padding: 0 1.5rem;
     margin-bottom: 2rem;
   }
+
   .search-box .search-bar {
     font-size: medium;
   }
@@ -212,7 +281,7 @@ main {
   }
 
   .location-box .date {
-    font-size:22px ;
+    font-size: 22px;
   }
 
   .weather-box .weather {
@@ -226,5 +295,5 @@ main {
   .footer {
     margin-top: -170px;
   }
-  
+
 }
