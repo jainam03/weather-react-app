@@ -15,7 +15,7 @@ function App() {
       .then(res => {
         if (!res.ok) {
           throw new Error("No matching location found. Please try searching for a different place.");
-        }
+        }   
         return res.json();
       })
       .then(result => {
@@ -66,7 +66,7 @@ function App() {
         </div>
             {notFoundError && (
               <div className="error-box">
-                An error occurred. Please try again later.
+                City not found. Please enter a valid city name.
               </div>
             )}
         {typeof weather.main !== "undefined" && (
@@ -79,10 +79,13 @@ function App() {
             </div>
             <div className="weather-box">
               <div className="temp">{Math.round(weather.main.temp)}°C</div>
+              <div className="feels-like">{`Feels like: ${Math.round(weather.main.feels_like)}°C`}</div>
+              <div className='wind-speed' >{`Wind speed: ${weather.wind.speed} meters/sec`}</div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
           </div>
         )}
+      <h3>Made with 💙 using React JS</h3>
       </main>
     </div>
   );
@@ -94,36 +97,36 @@ export default App;
 
 //previous functions
 // const search = evt => {
-//   //   if (evt.key === "Enter") {
-//   //     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-//   //       .then(res => {
-//   //         if (res.status === 404) {
-//   //           const error = new Error();
-//   //           alert("No matching location found. Please try searching for a different place.")
-//   //           throw error;
-//   //         }
-//   //       }).catch(e => {
-//   //         console.log(e);
-//   //       })
-//   //       .then(res => res.JSON())
-//   //       .then(result => {
-//   //         setWeather(result)
-//   //         setQuery('')
-//   //         console.log(result)
-//   //       })
-//   //   }
-//   // }
+  //   if (evt.key === "Enter") {
+  //     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+  //       .then(res => {
+  //         if (res.status === 404) {
+  //           const error = new Error();
+  //           alert("No matching location found. Please try searching for a different place.")
+  //           throw error;
+  //         }
+  //       }).catch(e => {
+  //         console.log(e);
+  //       })
+  //       .then(res => res.JSON())
+  //       .then(result => {
+  //         setWeather(result)
+  //         setQuery('')
+  //         console.log(result)
+  //       })
+  //   }
+  // }
 
-//   // const search = evt => {
-//   //   if (evt.key === "Enter") {
-//   //     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-//   //       .then(res => res.json())
-//   //       .then(result => {
-//   //         setWeather(result);
-//   //         setQuery('');
-//   //         console.log(result);
-//   //       });
-//   //   }
-//   // }
+  // const search = evt => {
+  //   if (evt.key === "Enter") {
+  //     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+  //       .then(res => res.json())
+  //       .then(result => {
+  //         setWeather(result);
+  //         setQuery('');
+  //         console.log(result);
+  //       });
+  //   }
+  // }
 
 
