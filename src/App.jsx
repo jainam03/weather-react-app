@@ -85,7 +85,7 @@ function App() {
             </div>
           </div>
         )}
-      <h3>Made with 💙 using React JS</h3>
+      {/* <h3>Made with 💙 using React JS</h3> */}
       </main>
     </div>
   );
